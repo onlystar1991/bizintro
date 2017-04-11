@@ -1,0 +1,16 @@
+@import '~grommet/scss/vanilla/index';
+.grommetux-background-color-index-neutral-3, .grommetux-background-color-index-neutral-7 {
+	background-color: #0e243d;
+}
+.grommetux-sidebar--xsmall {
+	width: 78px;
+}
+.grommetux-box--direction-row.grommetux-box--align-center {
+	padding: 20px;
+	font-size: 20px;
+	font-weight: 700;
+	> a {
+		color: #0e243d;
+		text-decoration: none;
+	}
+}
