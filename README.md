@@ -1,6 +1,6 @@
-# newapp
+# Bizintro
 
-This is a sample Grommet application for reference.
+This is Reactjs application used Grommet component.
 
 To run this application, execute the following commands:
 
