@@ -1,11 +1,23 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
+import App from 'grommet/components/App';
+import Footer from 'grommet/components/Footer';
+import Header from 'grommet/components/Header';
+import Section from 'grommet/components/Section';
+import Title from 'grommet/components/Title';
+import FilterIcon from 'grommet/components/icons/base/Filter';
+import Add from 'grommet/components/icons/base/Add';
+import SearchIcon from 'grommet/components/icons/base/Search';
+import Menu from 'grommet/components/Menu';
+
+
+
+
 import Anchor from 'grommet/components/Anchor';
 import Article from 'grommet/components/Article';
 import Box from 'grommet/components/Box';
-import Header from 'grommet/components/Header';
-import Heading from 'grommet/components/Heading';
+
 import Label from 'grommet/components/Label';
 import List from 'grommet/components/List';
 import ListItem from 'grommet/components/ListItem';
@@ -17,96 +29,80 @@ import Spinning from 'grommet/components/icons/Spinning';
 import { getMessage } from 'grommet/utils/Intl';
 
 import NavControl from '../components/NavControl';
-import {
-  loadDashboard, unloadDashboard
-} from '../actions/dashboard';
 
 import { pageLoaded } from './utils';
 
 class Home extends Component {
 
   componentDidMount() {
-    pageLoaded('Dashboard');
-    this.props.dispatch(loadDashboard());
+    pageLoaded('Introductions');
+    // this.props.dispatch(loadDashboard());
   }
 
   componentWillUnmount() {
-    this.props.dispatch(unloadDashboard());
+    // this.props.dispatch(unloadDashboard());
   }
 
   render() {
-    const { error, tasks } = this.props;
-    const { intl } = this.context;
-
-    let errorNode;
-    let listNode;
-    if (error) {
-      errorNode = (
-        <Notification status='critical' size='large' state={error.message}
-          message='An unexpected error happened, please try again later' />
-      );
-    } else if (tasks.length === 0) {
-      listNode = (
-        <Box direction='row' responsive={false}
-          pad={{ between: 'small', horizontal: 'medium', vertical: 'medium' }}>
-          <Spinning /><span>Loading...</span>
-        </Box>
-      );
-    } else {
-      const tasksNode = (tasks || []).map((task, index) => (
-        <ListItem key={index} justify='between'>
-          <Label><Anchor path={`/tasks/${task.id}`} label={task.name} /></Label>
-          <Box direction='row' responsive={false}
-            pad={{ between: 'small' }}>
-            <Value value={task.percentComplete}
-              units='%'
-              align='start' size='small' />
-            <Meter value={task.percentComplete} />
-          </Box>
-        </ListItem>
-      ));
-
-      listNode = (
-        <List>
-          {tasksNode}
-        </List>
-      );
-    }
+    console.log(this.props);
+    // const { box: { items } } = this.props;
+    // var i = 0;
+    // const instructions = items.map(instruction => (
+    //   i++,
+    //   <Box key={i}>
+    //     Test
+    //    </Box>
+    // ));
 
     return (
-      <Article primary={true}>
-        <Header direction='row' justify='between' size='large'
-          pad={{ horizontal: 'medium', between: 'small' }}>
-          <NavControl />
+      <div>
+        <Header size='small' className="instruction-header">
+          <Title>
+            521 Introductions
+          </Title>
+          <Box flex={true}
+            justify='end'
+            direction='row'
+            responsive={false}>
+            <Menu icon={<FilterIcon size='small' />}
+              dropAlign={{"right": "right"}}>
+            </Menu>
+            <Menu icon={<Add size='small' />}
+              dropAlign={{"right": "right"}}>
+              <Anchor href='#'
+                className='active'>
+                First
+              </Anchor>
+              <Anchor href='#'>
+                Second
+              </Anchor>
+              <Anchor href='#'>
+                Third
+              </Anchor>
+            </Menu>
+          </Box>
         </Header>
-        {errorNode}
-        <Box pad='medium'>
-          <Heading tag='h3' strong={true}>
-            Running Tasks
-          </Heading>
-          <Paragraph size='large'>
-            The backend here is using request polling (5 second interval).
-            See <Anchor path='/tasks'
-              label={getMessage(intl, 'Tasks')} /> page for an example
-            of websocket communication.
-          </Paragraph>
-        </Box>
-        {listNode}
-      </Article>
+        <Section className="instruction-section">
+          Test
+        </Section>
+        <Footer>Footer</Footer>
+      </div>
     );
   }
 }
 
 Home.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  error: PropTypes.object,
-  tasks: PropTypes.arrayOf(PropTypes.object)
+  nav: PropTypes.shape({
+    items: PropTypes.arrayOf(PropTypes.shape({
+      path: PropTypes.string,
+      label: PropTypes.Object
+    }))
+  })
 };
 
-Home.contextTypes = {
-  intl: PropTypes.object
-};
-
-const select = state => ({ ...state.dashboard });
+const select = state => ({
+  nav: state.nav
+});
 
 export default connect(select)(Home);

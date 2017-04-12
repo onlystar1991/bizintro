@@ -11,6 +11,7 @@ import CloseIcon from 'grommet/components/icons/base/Close';
 import Logo from 'grommet/components/icons/Grommet';
 import Anchor from 'grommet/components/Anchor';
 
+
 import SessionMenu from './SessionMenu';
 import { navActivate } from '../actions/nav';
 
@@ -30,11 +31,12 @@ class NavSidebar extends Component {
 
   render() {
     const { nav: { items } } = this.props;
-
+    var i = 0;
     const links = items.map(page => (
-      <Anchor key={page.label} path={page.path} label={page.label} >
-        test
-      </Anchor>
+      i++,
+      <Anchor path={page.path} key={i}>
+        {page.label}
+       </Anchor>
     ));
 
     return (
@@ -56,7 +58,7 @@ NavSidebar.propTypes = {
   nav: PropTypes.shape({
     items: PropTypes.arrayOf(PropTypes.shape({
       path: PropTypes.string,
-      label: PropTypes.string
+      label: PropTypes.Object
     }))
   })
 };

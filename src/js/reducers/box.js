@@ -4,14 +4,6 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import AddIcon from 'grommet/components/icons/base/Add';
-import BarChartIcon from 'grommet/components/icons/base/BarChart';
-import HaltIcon from 'grommet/components/icons/base/Halt';
-import CalendarIcon from 'grommet/components/icons/base/Calendar';
-import ConnectIcon from 'grommet/components/icons/base/Connect';
-import GroupIcon from 'grommet/components/icons/base/Group';
-
-
 import {
   NAV_ACTIVATE, NAV_ENABLE, NAV_RESPONSIVE
 } from '../actions';
@@ -23,12 +15,12 @@ const initialState = {
   enabled: true, // start with nav disabled
   responsive: 'multiple',
   items: [
-    { path: '/dashboard', label: <AddIcon /> },
-    { path: '/dashboard1', label: <BarChartIcon /> },
-    { path: '/home', label: <HaltIcon /> },
-    { path: '/dashboard3', label: <CalendarIcon /> },
-    { path: '/dashboard4', label: <ConnectIcon /> },
-    { path: '/tasks', label: <GroupIcon /> }
+    { path: '/dashboard', label: '1' },
+    { path: '/dashboard1', label: '2' },
+    { path: '/home', label: '3' },
+    { path: '/dashboard3', label: '4' },
+    { path: '/dashboard4', label: '5' },
+    { path: '/tasks', label: '6' }
   ]
 };
 

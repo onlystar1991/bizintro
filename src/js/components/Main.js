@@ -45,7 +45,7 @@ class Main extends Component {
     return (
       <App centered={false}>
         <Router>
-          <Article>
+          <div>
             <Header>
               <Anchor path='/'>Bizintro</Anchor>
             </Header>
@@ -55,14 +55,14 @@ class Main extends Component {
               <Switch>
                 <Route exact={true} path='/' component={Dashboard} />
                 <Route path='/dashboard' component={Dashboard} />
+                <Route path='/home' component={Home} />
                 <Route path='/login' component={Login} />
                 <Route path='/tasks/:id' component={Task} />
                 <Route path='/tasks' component={Tasks} />
                 <Route path='/*' component={NotFound} />
-                <Route path='/home' component={Home} />
               </Switch>
             </Split>
-          </Article>
+          </div>
         </Router>
       </App>
     );

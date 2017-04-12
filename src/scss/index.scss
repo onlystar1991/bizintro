@@ -14,3 +14,24 @@
 		text-decoration: none;
 	}
 }
+.grommetux-split__column--fixed {
+	height: calc(100vh - 72px);
+}
+.grommetux-sidebar--full {
+	height: 100%;
+}
+
+.grommetux-anchor__icon {
+	padding-top: 12px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.instruction-header {
+	padding-top: 5px !important;
+	padding-bottom: 5px !important;
+	height: 50px;
+	background: #eee;
+}
+.instruction-section {
+	padding: 20px;
+}

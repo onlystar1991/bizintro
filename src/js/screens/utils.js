@@ -1,6 +1,6 @@
 import { announcePageLoaded } from 'grommet/utils/Announcer';
 
-const DEFAULT_TITLE = 'Newapp';
+const DEFAULT_TITLE = 'Bizintro';
 
 export function pageLoaded(title) {
   if (document) {
