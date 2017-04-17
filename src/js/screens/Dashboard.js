@@ -11,6 +11,7 @@ import List from 'grommet/components/List';
 import ListItem from 'grommet/components/ListItem';
 import Notification from 'grommet/components/Notification';
 import Paragraph from 'grommet/components/Paragraph';
+import Split from 'grommet/components/Split';
 import Value from 'grommet/components/Value';
 import Meter from 'grommet/components/Meter';
 import Spinning from 'grommet/components/icons/Spinning';
@@ -22,6 +23,7 @@ import {
 } from '../actions/dashboard';
 
 import { pageLoaded } from './utils';
+import NavSidebar from '../components/NavSidebar';
 
 class Dashboard extends Component {
 
@@ -35,64 +37,19 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { error, tasks } = this.props;
-    const { intl } = this.context;
-
-    let errorNode;
-    let listNode;
-    if (error) {
-      errorNode = (
-        <Notification status='critical' size='large' state={error.message}
-          message='An unexpected error happened, please try again later' />
-      );
-    } else if (tasks.length === 0) {
-      listNode = (
-        <Box direction='row' responsive={false}
-          pad={{ between: 'small', horizontal: 'medium', vertical: 'medium' }}>
-          <Spinning /><span>Loading...</span>
-        </Box>
-      );
-    } else {
-      const tasksNode = (tasks || []).map((task, index) => (
-        <ListItem key={index} justify='between'>
-          <Label><Anchor path={`/tasks/${task.id}`} label={task.name} /></Label>
-          <Box direction='row' responsive={false}
-            pad={{ between: 'small' }}>
-            <Value value={task.percentComplete}
-              units='%'
-              align='start' size='small' />
-            <Meter value={task.percentComplete} />
-          </Box>
-        </ListItem>
-      ));
-
-      listNode = (
-        <List>
-          {tasksNode}
-        </List>
-      );
-    }
-
+    const nav = <NavSidebar />;
     return (
-      <Article primary={true}>
-        <Header direction='row' justify='between' size='large'
-          pad={{ horizontal: 'medium', between: 'small' }}>
-          <NavControl />
+      <div>
+        <Header>
+          <Anchor path='/'>Bizintro</Anchor>
         </Header>
-        {errorNode}
-        <Box pad='medium'>
-          <Heading tag='h3' strong={true}>
-            Running Tasks
-          </Heading>
-          <Paragraph size='large'>
-            The backend here is using request polling (5 second interval).
-            See <Anchor path='/tasks'
-              label={getMessage(intl, 'Tasks')} /> page for an example
-            of websocket communication.
-          </Paragraph>
-        </Box>
-        {listNode}
-      </Article>
+        <Split flex='right'>
+          {nav}
+          <Article primary={true}>
+            Test
+          </Article>
+        </Split>
+      </div>
     );
   }
 }

@@ -16,8 +16,6 @@ import SessionMenu from './SessionMenu';
 import { navActivate } from '../actions/nav';
 
 
-
-
 class NavSidebar extends Component {
 
   constructor() {

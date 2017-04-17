@@ -19,3 +19,7 @@ export const TASK_UNLOAD = 'TASK_UNLOAD';
 export const NAV_ACTIVATE = 'NAV_ACTIVATE';
 export const NAV_ENABLE = 'NAV_ENABLE';
 export const NAV_RESPONSIVE = 'NAV_RESPONSIVE';
+
+//Boxlist
+export const LIST_LOAD = 'LIST_LOAD';
+export const LIST_UNLOAD = 'LIST_UNLOAD';

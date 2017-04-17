@@ -1,4 +1,5 @@
 @import '~grommet/scss/vanilla/index';
+@import './rich-editor';
 .grommetux-background-color-index-neutral-3, .grommetux-background-color-index-neutral-7 {
 	background-color: #0e243d;
 }
@@ -34,4 +35,209 @@
 }
 .instruction-section {
 	padding: 20px;
+	background: #f6f6f6;
+}
+.introductionItem {
+	margin-top: 8px;
+	margin-bottom: 15px;
+	background: white;
+	-webkit-box-shadow: 1px 3px 9px 0px rgba(187,187,187,1);
+	-moz-box-shadow: 1px 3px 9px 0px rgba(187,187,187,1);
+	box-shadow: 1px 3px 9px 0px rgba(187,187,187,1);
+}
+.instruction-item-image {
+	border-radius: 25px;
+	width: 50px;
+	height: 50px;
+}
+.introductionItem .grommetux-box--pad-medium {
+	padding: 12px;
+}
+.instructionName {
+	margin-left: 20px;
+    font-size: 13px;
+    margin-top: 6px;
+    > span {
+		font-weight: 600;
+    }
+}
+.pull-right {
+	float: right;
+}
+.secondColumBox {
+	justify-content: space-between;
+}
+.detail-view-class {
+	padding: 13px;
+	> a {
+		color: #9a9a9a;
+		font-size: 14px;
+		font-weight: 500;
+		&:hover, &:focus, &:active {
+			color: #9a9a9a;
+		}
+	}
+}
+.slide-bar-content {
+	background: white;
+	.container {
+		height: calc(100% - 160px);
+		> div {
+			text-align: right;
+			padding: 0px;
+			margin-bottom: 15px;
+			margin-right: 30px;
+			margin-left: 30px;
+			display: flex;
+			justify-content: space-between;
+			.multistep__btn--next {
+				background: #4299ff;
+				color: white;
+				border-color: #4299ff;
+				border-radius: 0px;
+				font-size: 17px;
+				font-weight: 500;
+			}
+			.multistep__btn--prev {
+				background: white;
+				color: #3d3d3d;
+				border-color: #6f7e89;
+				border-radius: 0px;
+				font-size: 17px;
+				font-weight: 500;
+			}
+		}
+		.rdw-editor-wrapper {
+			height: calc(100% - 25px);
+		}
+	}
+	.slide-bar-title {
+		padding: 10px;
+		padding-left: 30px;
+		> div {
+			padding: 0px;
+			font-size: 27px;
+			font-weight: 400;
+		}
+	}
+	.slide-bar-section {
+		padding: 10px;
+		padding-left: 30px;
+		height: 100%;
+		.slide-bar-search {
+			margin-top: 30px;
+			font-size: 19px;
+			height: 100%;
+			.slide-bar-search-bar {
+				position: absolute;
+				margin-top: 31px;
+				width: 90%;
+				input {
+					margin-top: 10px;
+					padding-top: 5px;
+					padding-bottom: 5px;
+					width: 100%;
+				}
+				svg {
+					margin-top: 5px;
+				}
+			}
+		}
+	}
+	.progtrckr {
+		display: none;
+	}
+}
+.login-form-box {
+	background: url('http://placeimg.com/640/480/any');
+	display: block;
+}
+.login-form-section {
+	background: #0e243d;
+    float: right;
+    margin: 150px 100px 0px 0px;
+}
+.grommetux-heading.grommetux-heading--strong {
+	font-size: 25px !important;
+	padding: 0px;
+	color: white;
+	font-weight: 700;
+}
+.grommetux-paragraph.grommetux-paragraph--align-start {
+	color: #a87b2c;
+}
+.login-form-section .grommetux-box {
+	display: block;
+	text-align: center;
+	p {
+		text-align: center;
+	}
+}
+.login-form-section {
+	input {
+		background: white;
+	}
+	.login-form-title {
+		color: white;
+		font-size: 27px;
+		justify-content: center;
+	}
+	.login-form-subtitle {
+		color: #a87b2c;
+		text-align: center;
+	}
+	.signin-button {
+		width: 100% !important;
+		border: none !important;
+		background: #4299ff !important;
+		color: white !important;
+		max-width: 100% !important;
+		&:hover {
+			cursor: pointer;
+		}
+	}
+	footer {
+		padding: 0px;
+		text-align: left !important;
+		label.grommetux-check-box {
+			position: absolute;
+			width: 100%;
+			margin-top: 45px;
+			span {
+				span {
+					background: white;
+				}
+			}
+			
+			.grommetux-check-box__label {
+				color: white;
+				span {
+					background: transparent;
+				}
+			}
+			&:hover {
+				.grommetux-check-box__label {
+					color: white;
+				}
+				.grommetux-check-box__control {
+					border: none;
+				}
+			}
+		}
+		.grommetux-button {
+			width: 100%;
+			max-width: 100%;
+			background: #4299ff;
+			border-radius: 0px;
+			border: none;
+			&:hover {
+				border: none;
+				box-shadow: none !important;
+			}
+		}
+	}
+	.login-form-foot {
+		text-align: left;
+		color: white;
+	}
 }

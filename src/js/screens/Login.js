@@ -3,17 +3,23 @@ import { connect } from 'react-redux';
 
 import Split from 'grommet/components/Split';
 import Sidebar from 'grommet/components/Sidebar';
+import Form from 'grommet/components/Form';
 import LoginForm from 'grommet/components/LoginForm';
 import Article from 'grommet/components/Article';
 import Section from 'grommet/components/Section';
 import Heading from 'grommet/components/Heading';
 import Paragraph from 'grommet/components/Paragraph';
+import Anchor from 'grommet/components/Anchor';
 import Footer from 'grommet/components/Footer';
 import Logo from 'grommet/components/icons/Grommet';
-
+import Box from 'grommet/components/Box';
+import TextInput from 'grommet/components/TextInput';
+import Button from 'grommet/components/Button';
+import Title from 'grommet/components/Title';
 import { login } from '../actions/session';
 import { navEnable } from '../actions/nav';
 import { pageLoaded } from './utils';
+
 
 class Login extends Component {
 
@@ -32,6 +38,7 @@ class Login extends Component {
   }
 
   _onSubmit(fields) {
+    console.log(fields);
     const { dispatch } = this.props;
     const { router } = this.context;
     dispatch(login(fields.username, fields.password, () => (
@@ -43,31 +50,23 @@ class Login extends Component {
     const { session: { error } } = this.props;
 
     return (
-      <Split flex='left' separator={true}>
-
-        <Article>
-          <Section full={true} colorIndex='brand' texture='url(img/splash.png)'
-            pad='large' justify='center' align='center'>
-            <Heading tag='h1'><strong>Newapp</strong></Heading>
-            <Paragraph align='center' size='large'>
-              Development with Grommet is cool.
-            </Paragraph>
-          </Section>
-        </Article>
-
-        <Sidebar justify='between' align='center' pad='none' size='large'>
-          <span />
-          <LoginForm align='start'
-            logo={<Logo className='logo' colorIndex='brand' />}
-            title='Newapp'
+      <Box>
+        <Box className="login-form-box">
+          <Section justify='between' align='center' pad='none' size='large' className="login-form-section">
+            <span />
+            <LoginForm align='start'
+              title='Bizintro'
+              rememberMe={true}
+              secondaryText='Sign in to lend your hand to the network.'
             onSubmit={this._onSubmit} errors={[error]} usernameType='text' />
-          <Footer direction='row' size='small'
-            pad={{ horizontal: 'medium', vertical: 'small' }}>
-            <span className='secondary'>&copy; 2017 Grommet Labs</span>
-          </Footer>
-        </Sidebar>
-
-      </Split>
+            <div className="login-form-foot">New to Bizintro?<Anchor label='Sign Up' href='#' /></div>
+          </Section>
+        </Box>
+        <Footer direction='row' size='small'
+          pad={{ horizontal: 'medium', vertical: 'small' }}>
+          <span className='secondary'>&copy; 2017 Grommet Labs</span>
+        </Footer>
+      </Box>
     );
   }
 }

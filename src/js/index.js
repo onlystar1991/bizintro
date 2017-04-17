@@ -3,9 +3,7 @@ import { polyfill as promisePolyfill } from 'es6-promise';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import '../scss/index.scss';
-
 import App from './App';
 
 promisePolyfill();

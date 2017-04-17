@@ -45,24 +45,15 @@ class Main extends Component {
     return (
       <App centered={false}>
         <Router>
-          <div>
-            <Header>
-              <Anchor path='/'>Bizintro</Anchor>
-            </Header>
-            <Split priority={priority} flex='right'
-              onResponsive={this._onResponsive}>
-              {nav}
-              <Switch>
-                <Route exact={true} path='/' component={Dashboard} />
-                <Route path='/dashboard' component={Dashboard} />
-                <Route path='/home' component={Home} />
-                <Route path='/login' component={Login} />
-                <Route path='/tasks/:id' component={Task} />
-                <Route path='/tasks' component={Tasks} />
-                <Route path='/*' component={NotFound} />
-              </Switch>
-            </Split>
-          </div>
+          <Switch>
+            <Route exact={true} path='/' component={Dashboard} />
+            <Route path='/dashboard' component={Dashboard} />
+            <Route path='/home' component={Home} />
+            <Route path='/login' component={Login} />
+            <Route path='/tasks/:id' component={Task} />
+            <Route path='/tasks' component={Tasks} />
+            <Route path='/*' component={NotFound} />
+          </Switch>
         </Router>
       </App>
     );
