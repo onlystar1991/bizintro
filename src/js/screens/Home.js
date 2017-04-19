@@ -10,6 +10,7 @@ import FilterIcon from 'grommet/components/icons/base/Filter';
 import Add from 'grommet/components/icons/base/Add';
 import SearchIcon from 'grommet/components/icons/base/Search';
 import Menu from 'grommet/components/Menu';
+import Button from 'grommet/components/Button';
 
 import Sidebar from 'react-sidebar';
 
@@ -37,6 +38,7 @@ import { pageLoaded } from './utils';
 
 import SidebarContent from './sidebar-content';
 import NavSidebar from '../components/NavSidebar';
+import DateSlide from './DateSlide';
 
 const styles = {
   contentHeaderMenuLink: {
@@ -118,12 +120,15 @@ class Home extends Component {
         priority='left' key={i}
         separator={false}
         showOnResponsive='both' className='introductionItem'>
-        <Box align='start' direction='row'
+        <Box align='start' direction='row' className='introduction-item-first-col'
           pad='medium'>
-          <Image src='http://placeimg.com/100/100/animals' className='instruction-item-image'/>
-          <div className='instructionName'>
-            <span>Bethany Superdeson</span> <br /> Visual Designer ABC Crop
-          </div>
+          <Box direction='row'>
+            <Image src='http://placeimg.com/100/100/animals' className='instruction-item-image'/>
+            <div className='instructionName'>
+              <span>Bethany Superdeson</span> <br /> Visual Designer ABC Crop
+            </div>
+          </Box>
+          <DateSlide />
         </Box>
         <Box align='start' direction='row'
           pad='medium' className="secondColumBox">
@@ -171,23 +176,37 @@ class Home extends Component {
 
 
     return (
-      <Sidebar {...sidebarProps}>
-        <Header>
+      <Sidebar {...sidebarProps} size='large'>
+        <Header className="introduction-header">
           <Anchor path='/'>Bizintro</Anchor>
         </Header>
         <Split flex='right'>
           {nav}
           <div>
             <Header size='small' className="instruction-header">
-              <Title>
+              <Title className='instruction-title'>
                 521 Introductions
               </Title>
               <Box flex={true}
                 justify='end'
                 direction='row'
                 responsive={false}>
-                <FilterIcon size='small' />              
-                {!this.state.docked && <Add size='small' onClick={this.menuButtonClick} href="#" />}
+                <Menu responsive={true}
+                  icon={<FilterIcon />}>
+                  <Anchor href='#'
+                    className='active'>
+                    First action
+                  </Anchor>
+                  <Anchor href='#'>
+                    Second action
+                  </Anchor>
+                  <Anchor href='#'>
+                    Third action
+                  </Anchor>
+                </Menu>
+                {!this.state.docked && <Button icon={<Add />} onClick={this.menuButtonClick} href='#' primary={false} />}
+
+                
               </Box>
             </Header>
             <Section className="instruction-section">

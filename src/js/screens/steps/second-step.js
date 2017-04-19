@@ -7,10 +7,24 @@ import Box from 'grommet/components/Box';
 import SearchInput from 'grommet/components/SearchInput';
 import Button from 'grommet/components/Button';
 import Section from 'grommet/components/Section';
-import { Editor } from 'react-draft-wysiwyg';
-import '../../../scss/rich-editor.scss';
+import ReactQuill from 'react-quill';
 
 const store = { hasPrimaryContactMessage: ''}
+const modules = {
+  toolbar: [
+    [{ 'header': [1, 2, 3, 4, false] }],
+    ['underline', 'bold', 'italic', 'strike', 'blockquote'],
+    [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+    ['link', 'image']
+  ],
+};
+const formats = [
+  'header',
+  'underline', 'bold', 'italic', 'strike', 'blockquote',
+  'list', 'bullet', 'indent',
+  'link', 'image'
+];
+
 const SecondStep = React.createClass ({
     getInitialState() {
         return store
@@ -30,7 +44,13 @@ const SecondStep = React.createClass ({
             <div>
               Introduction Message
             </div>
-            <Editor className="rich-editor" />
+            <div className="text-editor">
+              <ReactQuill className="rich-editor"
+                theme="snow"
+                modules={modules}
+                formats={formats}
+               />
+            </div>
           </Box>
         </Section>
       )

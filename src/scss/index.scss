@@ -2,6 +2,10 @@
 @import '~grommet/scss/hpe/index';
 @import './rich-editor';
 
+@import '~react-quill/dist/quill.snow';
+@import '~react-quill/dist/quill.bubble';
+@import '~react-quill/dist/quill.core';
+
 @font-face {
   font-family: "Metric Black";
   src: url("#{$hpe-fonts-path}/MetricHPE-Web-Black.woff") format('woff');
@@ -39,15 +43,7 @@
 .grommetux-sidebar--xsmall {
 	width: 78px;
 }
-.grommetux-box--direction-row.grommetux-box--align-center {
-	padding: 20px;
-	font-size: 20px;
-	font-weight: 700;
-	> a {
-		color: #0e243d;
-		text-decoration: none;
-	}
-}
+
 .grommetux-split__column--fixed {
 	height: calc(100vh - 72px);
 }
@@ -60,20 +56,39 @@
 	padding-left: 0px;
 	padding-right: 0px;
 }
+.introduction-header {
+	padding-left: 24px;
+	font-size: 32px;
+	font-weight: 700;
+	> a {
+		color: #0e243d !important;
+		text-decoration: none;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
 .instruction-header {
 	padding-top: 5px !important;
+	padding-left: 35px;
 	padding-bottom: 5px !important;
-	height: 50px;
+	height: 72px;
 	background: #eee;
+	font-size: 24px;
+	z-index: 0;
+	.instruction-title {
+	}
 }
 .instruction-section {
 	padding: 20px;
 	background: #f6f6f6;
+	overflow-x: auto;
 }
 .introductionItem {
 	margin-top: 8px;
 	margin-bottom: 15px;
 	background: white;
+	height: 90px;
 	-webkit-box-shadow: 1px 3px 9px 0px rgba(187,187,187,1);
 	-moz-box-shadow: 1px 3px 9px 0px rgba(187,187,187,1);
 	box-shadow: 1px 3px 9px 0px rgba(187,187,187,1);
@@ -88,7 +103,7 @@
 }
 .instructionName {
 	margin-left: 20px;
-    font-size: 13px;
+    font-size: 18px;
     margin-top: 6px;
     > span {
 		font-weight: 600;
@@ -98,6 +113,9 @@
 	float: right;
 }
 .secondColumBox {
+	justify-content: space-between;
+}
+.introduction-item-first-col {
 	justify-content: space-between;
 }
 .detail-view-class {
@@ -285,7 +303,7 @@
 	font-weight: 600;
 	line-height: 42px;
 	font-style: 'semi-bold';
-	padding-top: 200px  !important;
+	padding-top: 200px !important;
 }
 .footer-menus {
 	width: 100%;
@@ -313,8 +331,10 @@
 	font-size: 15px;
 }
 .landing-box {
-	background: url('http://placeimg.com/640/480/any');
-	display: block;	
+	background: url(img/rectangle.png);
+	background-size: 100% 100%;
+	display: block;
+	background-color: #555;
 }
 .landing-logo {
 	font-size: 48px !important;
@@ -363,6 +383,11 @@
 	}
 }
 .get-started-div {
+	.get-started-title {
+		color: #f5a623;
+		font-family: "Metric HPE";
+		font-size: 24px;
+	}
 	.get-started-form {
 		width: 50%;
 		input {
@@ -382,4 +407,49 @@
 	padding-left: 30px;
 	padding-right: 30px;
 	color: #f5a623;
+}
+.landing-footer-menu {
+	margin-top: 15px;
+	color: white;
+	margin-bottom: 170px;
+	a {
+		color: white !important;
+		font-weight: 500;
+		font-size: 15px;
+	}
+}
+.timeline {
+	display: inline-flex;
+	list-style: none;
+	margin-top: 10px;
+	li {
+		padding-right: 50px;
+		span {
+			position: absolute;
+			font-size: smaller;
+			margin-left: -15px;
+			margin-top: 8px;
+		}
+	}
+	.circle {
+		width: 24px;
+		height: 24px;
+		border-radius: 12px;
+		background: #4496ff;
+	}
+	.line {
+		position: absolute;
+		background: #4496ff;
+		height: 1px;
+		border: 1px solid #4496ff;
+		width: 50px;
+		margin-top: -12px;
+		margin-left: 24px;
+	}
+}
+
+.ql-formats {
+	button {
+		min-width: 0px !important;
+	}
 }

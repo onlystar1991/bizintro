@@ -74,7 +74,7 @@ class Login extends Component {
           <Section>
             <Title className='landing-title'>Take a moments that matters.</Title>
             <Box className='get-started-div'>
-              <div>Sign in to lend your hand to the network.</div>
+              <div className='get-started-title'>Sign in to lend your hand to the network.</div>
               <Form className="get-started-form">
                 <TextInput
                   name='email'
@@ -83,6 +83,7 @@ class Login extends Component {
                 &nbsp;&nbsp;
                 <Button href="#" label="Get Started" className="get-started-button" />
               </Form>
+              <div className="landing-footer-menu">Already joined Bizintro? &nbsp;&nbsp;<Anchor label='Sign In' href='#' /></div>
             </Box>
           </Section>
         </Box>
