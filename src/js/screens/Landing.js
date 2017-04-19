@@ -4,10 +4,12 @@ import { connect } from 'react-redux';
 import Split from 'grommet/components/Split';
 import Sidebar from 'grommet/components/Sidebar';
 import Value from 'grommet/components/Value';
-import LoginForm from 'grommet/components/LoginForm';
 import Article from 'grommet/components/Article';
 import Section from 'grommet/components/Section';
+import Header from 'grommet/components/Header';
 import Heading from 'grommet/components/Heading';
+import FormField from 'grommet/components/FormField';
+import Form from 'grommet/components/Form';
 import Menu from 'grommet/components/Menu';
 import Paragraph from 'grommet/components/Paragraph';
 import Anchor from 'grommet/components/Anchor';
@@ -52,17 +54,37 @@ class Login extends Component {
 
     return (
       <Box>
-        <Box className="login-form-box">
-          <Section justify='between' align='center' pad='none' size='large' className="login-form-section">
-            <span />
-            <LoginForm align='start'
-              title='Bizintro'
-              rememberMe={true}
-              secondaryText='Sign in to lend your hand to the network.'
-            onSubmit={this._onSubmit} errors={[error]} usernameType='text' />
-            <div className="login-form-foot">New to Bizintro?&nbsp;&nbsp;<Anchor label='Sign Up' href='#' /></div>
+        <Box className="landing-box">
+          <Header>
+            <Anchor className='landing-logo'>
+              Bizintro
+            </Anchor>
+            <Box flex={true}
+              justify='end'
+              direction='row'
+              pad='medium' size='small'
+              responsive={false} className='landing-nav-menus'>
+              <Anchor>Features</Anchor>
+              <Anchor>Pricing</Anchor>
+              <Anchor>Support</Anchor>
+              <Anchor>Blog</Anchor>
+              <Button label="Sign In" href="#" className="landing-sign-button"/>
+            </Box>
+          </Header>
+          <Section>
+            <Title className='landing-title'>Take a moments that matters.</Title>
+            <Box className='get-started-div'>
+              <div>Sign in to lend your hand to the network.</div>
+              <Form className="get-started-form">
+                <TextInput
+                  name='email'
+                  value=''
+                  />
+                &nbsp;&nbsp;
+                <Button href="#" label="Get Started" className="get-started-button" />
+              </Form>
+            </Box>
           </Section>
-          <Footer className="login-form-box-footer"> 6 Bit Consulting in Chicago </Footer>
         </Box>
         <Box direction="column"
           pad={{ horizontal: 'medium', vertical: 'small' }}>
@@ -135,6 +157,17 @@ class Login extends Component {
               <Anchor>Education and Training</Anchor>
               <Anchor>Email Signup</Anchor>
             </Box>
+            <Box 
+              justify='start'
+              align='start'
+              wrap={true}
+              pad='small'
+              >
+              <div className='title'>Legal</div>
+              <Anchor>Privacy</Anchor>
+              <Anchor>Terms of Use</Anchor>
+              <Anchor>Cookies</Anchor>
+            </Box>
           </Box>
           <Footer justify='between'>
             <Box direction='row'
@@ -158,6 +191,9 @@ class Login extends Component {
                 Report a Bug
               </Anchor>
             </Menu>
+          </Footer>
+          <Footer>
+            
           </Footer>
         </Box>
       </Box>

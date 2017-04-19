@@ -1,5 +1,38 @@
 @import '~grommet/scss/vanilla/index';
+@import '~grommet/scss/hpe/index';
 @import './rich-editor';
+
+@font-face {
+  font-family: "Metric Black";
+  src: url("#{$hpe-fonts-path}/MetricHPE-Web-Black.woff") format('woff');
+}
+@font-face {
+  font-family: "Metric HPE";
+  src: url("#{$hpe-fonts-path}/MetricHPE-Web-Regular.woff") format('woff');
+  font-style: 'regular';
+}
+
+@font-face {
+  font-family: "Metric HPE";
+  src: url("#{$hpe-fonts-path}/MetricHPE-Web-Bold.woff") format('woff');
+  font-weight: 700;
+  font-style: 'bold';
+}
+
+@font-face {
+  font-family: "Metric HPE";
+  src: url("#{$hpe-fonts-path}/MetricHPE-Web-Semibold.woff") format('woff');
+  font-weight: 600;
+  font-style: 'semi-bold';
+}
+
+@font-face {
+  font-family: "Metric HPE";
+  src: url("#{$hpe-fonts-path}/MetricHPE-Web-Light.woff") format('woff');
+  font-weight: 100;
+  font-style: 'light';
+}
+
 .grommetux-background-color-index-neutral-3, .grommetux-background-color-index-neutral-7 {
 	background-color: #0e243d;
 }
@@ -156,15 +189,23 @@
 	background: #0e243d;
     float: right;
     margin: 150px 100px 0px 0px;
+    padding-bottom: 54px;
 }
 .grommetux-heading.grommetux-heading--strong {
-	font-size: 25px !important;
+	font-size: 48px !important;
+	font-family: 'Metric Black';
+	letter-spacing: 1.4px;
+	line-height: 24px;
 	padding: 0px;
 	color: white;
-	font-weight: 700;
+	font-weight: 900;
+	font-style: black;
+
 }
 .grommetux-paragraph.grommetux-paragraph--align-start {
-	color: #a87b2c;
+	color: #f5a623;
+	font-size: 24px !important;
+	font-family: 'Metric HPE';
 }
 .login-form-section .grommetux-box {
 	display: block;
@@ -177,15 +218,7 @@
 	input {
 		background: white;
 	}
-	.login-form-title {
-		color: white;
-		font-size: 27px;
-		justify-content: center;
-	}
-	.login-form-subtitle {
-		color: #a87b2c;
-		text-align: center;
-	}
+	
 	.signin-button {
 		width: 100% !important;
 		border: none !important;
@@ -238,6 +271,115 @@
 	}
 	.login-form-foot {
 		text-align: left;
+	    width: 75%;
 		color: white;
+	    margin-top: 14px;
 	}
+}
+.login-form-box-footer {
+	width: 100%;
+	height: 42px;
+	color: #ffffff;
+	font-family: "Metric HPE";
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 42px;
+	font-style: 'semi-bold';
+	padding-top: 200px  !important;
+}
+.footer-menus {
+	width: 100%;
+	.title {
+		font-weight: 700;
+	}
+	a.grommetux-anchor {
+		text-decoration: none;
+		font-family: "Metric HPE";
+		font-size: 17px;
+		color: #222;
+		font-weight: 400;
+	}
+}
+.login-form-footer-menu {
+	a {
+		color: #333;
+		font-weight: 500;
+		font-size: 15px;
+	}
+}
+.login-page-paragraph {
+	color: #333;
+	font-weight: 500;
+	font-size: 15px;
+}
+.landing-box {
+	background: url('http://placeimg.com/640/480/any');
+	display: block;	
+}
+.landing-logo {
+	font-size: 48px !important;
+	font-family: 'Metric Black';
+	letter-spacing: 1.4px;
+	line-height: 24px;
+	padding: 0px;
+	color: white !important;
+	font-weight: 900;
+	font-style: black;
+}
+.landing-nav-menus {
+	a {
+		padding: 10px;
+		color: white;
+		font-weight: 400;
+		text-decoration: none;
+	}
+	.landing-sign-button {
+		width: 115px;
+		height: 51px;
+		border-radius: 8px;
+		border: 3px solid #4299ff;
+		span {
+			width: 60px;
+			height: 24px;
+			color: #ffffff;
+			font-family: "Metric HPE";
+			font-size: 22px;
+			font-weight: 600;
+		}
+		&:hover {
+			box-shadow: none !important;
+		}
+	}
+}
+.landing-title {
+	white-space: initial;
+	width: 50%;
+	span {
+		color: #ffffff;
+		font-family: "Metric HPE";
+		font-size: 90px;
+		font-weight: 600;
+		line-height: 85px;
+	}
+}
+.get-started-div {
+	.get-started-form {
+		width: 50%;
+		input {
+			background: white;
+			width: 65%;
+		}
+		.get-started-button {
+			background: #0d233d;
+			color: white;
+			border: none;
+			box-shadow: none !important;
+			width: 30%;
+			padding-top: 12px;
+			padding-bottom: 15px;
+		}
+	}
+	padding-left: 30px;
+	padding-right: 30px;
+	color: #f5a623;
 }

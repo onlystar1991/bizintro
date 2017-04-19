@@ -28,11 +28,13 @@ import NavSidebar from '../components/NavSidebar';
 class Dashboard extends Component {
 
   componentDidMount() {
+    console.log(this);
     pageLoaded('Dashboard');
     this.props.dispatch(loadDashboard());
   }
 
   componentWillUnmount() {
+    console.log(this);
     this.props.dispatch(unloadDashboard());
   }
 

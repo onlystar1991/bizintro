@@ -12,6 +12,7 @@ import Anchor from 'grommet/components/Anchor';
 import NavSidebar from './NavSidebar';
 import { navResponsive } from '../actions/nav';
 
+import Landing from '../screens/Landing';
 import Login from '../screens/Login';
 import Dashboard from '../screens/Dashboard';
 import Tasks from '../screens/Tasks';
@@ -46,7 +47,7 @@ class Main extends Component {
       <App centered={false}>
         <Router>
           <Switch>
-            <Route exact={true} path='/' component={Dashboard} />
+            <Route exact={true} path='/' component={Landing} />
             <Route path='/dashboard' component={Dashboard} />
             <Route path='/home' component={Home} />
             <Route path='/login' component={Login} />
