@@ -43,7 +43,7 @@ class Login extends Component {
     const { dispatch } = this.props;
     const { router } = this.context;
     dispatch(login(fields.username, fields.password, () => (
-      router.history.push('/dashboard')
+      router.history.push('/home')
     )));
   }
 
@@ -53,7 +53,7 @@ class Login extends Component {
     return (
       <Box>
         <Box className="login-form-box">
-          <Section justify='between' align='center' pad='none' size='large' className="login-form-section">
+          <div className="login-form-section">
             <span />
             <LoginForm align='start'
               title='Bizintro'
@@ -61,7 +61,7 @@ class Login extends Component {
               secondaryText='Sign in to lend your hand to the network.'
             onSubmit={this._onSubmit} errors={[error]} usernameType='text' />
             <div className="login-form-foot">New to Bizintro?&nbsp;&nbsp;<Anchor label='Sign Up' href='#' /></div>
-          </Section>
+          </div>
           <Footer className="login-form-box-footer"> 6 Bit Consulting in Chicago </Footer>
         </Box>
         <Box direction="column"
@@ -134,6 +134,17 @@ class Login extends Component {
               <Anchor>Public Sector Store</Anchor>
               <Anchor>Education and Training</Anchor>
               <Anchor>Email Signup</Anchor>
+            </Box>
+            <Box 
+              justify='start'
+              align='start'
+              wrap={true}
+              pad='small'
+              >
+              <div className='title'>Legal</div>
+              <Anchor>Privacy</Anchor>
+              <Anchor>Terms of Use</Anchor>
+              <Anchor>Cookies</Anchor>
             </Box>
           </Box>
           <Footer justify='between'>

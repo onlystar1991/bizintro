@@ -111,15 +111,15 @@ class Home extends Component {
   }
 
   render() {
-    console.log(this.props);
     const { box: { items } } = this.props;
     var i = 0;
     const instructions = items.map(instruction => (
       i++,
       <Split fixed={false}
-        priority='left' key={i}
+        priority='right' key={i}
         separator={false}
-        showOnResponsive='both' className='introductionItem'>
+        className='introductionItem'
+        >
         <Box align='start' direction='row' className='introduction-item-first-col'
           pad='medium'>
           <Box direction='row'>
@@ -134,7 +134,7 @@ class Home extends Component {
           pad='medium' className="secondColumBox">
             <Box direction="row" align="start">
               <Image src='http://placeimg.com/100/100/animals' className='instruction-item-image'/>
-              <div className='instructionName'>
+              <div className='instructionName-right'>
                 <span>Bethany Superdeson</span> <br /> Visual Designer ABC Crop
               </div>
             </Box>
@@ -149,13 +149,6 @@ class Home extends Component {
 
     
     const sidebar = <SidebarContent />;
-
-    // const contentHeader = (
-    //   <span>
-    //     {!this.state.docked &&
-    //      <a onClick={this.menuButtonClick} href="#" style={styles.contentHeaderMenuLink}>=</a>}
-    //     <span> React Sidebar</span>
-    //   </span>);
 
     const sidebarProps = {
       sidebar: sidebar,
@@ -180,9 +173,9 @@ class Home extends Component {
         <Header className="introduction-header">
           <Anchor path='/'>Bizintro</Anchor>
         </Header>
-        <Split flex='right'>
+        <Box direction='row'>
           {nav}
-          <div>
+          <div className='main-content'>
             <Header size='small' className="instruction-header">
               <Title className='instruction-title'>
                 521 Introductions
@@ -209,12 +202,12 @@ class Home extends Component {
                 
               </Box>
             </Header>
-            <Section className="instruction-section">
+            <div className="instruction-section">
               {instructions}
-            </Section>
-            <Footer>Footer</Footer>
+            </div>
+            <Footer className="instuctions-footer">Instructions</Footer>
           </div>
-        </Split>
+        </Box>
       </Sidebar>
     );
   }

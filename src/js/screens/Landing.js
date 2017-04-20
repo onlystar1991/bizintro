@@ -23,6 +23,8 @@ import { login } from '../actions/session';
 import { navEnable } from '../actions/nav';
 import { pageLoaded } from './utils';
 
+import MenuIcon from 'grommet/components/icons/base/Menu';
+
 
 class Login extends Component {
 
@@ -64,11 +66,30 @@ class Login extends Component {
               direction='row'
               pad='medium' size='small'
               responsive={false} className='landing-nav-menus'>
-              <Anchor>Features</Anchor>
-              <Anchor>Pricing</Anchor>
-              <Anchor>Support</Anchor>
-              <Anchor>Blog</Anchor>
-              <Button label="Sign In" href="#" className="landing-sign-button"/>
+              <div className='landing-page-menus'>
+                <Anchor>Features</Anchor>
+                <Anchor>Pricing</Anchor>
+                <Anchor>Support</Anchor>
+                <Anchor>Blog</Anchor>
+              </div>
+              <Menu className='landing-page-menu'
+                icon={<MenuIcon />}>
+                <Anchor href='#'
+                  className='active'>
+                  Features
+                </Anchor>
+                <Anchor href='#'>
+                  Pricing
+                </Anchor>
+                <Anchor href='#'>
+                  Support
+                </Anchor>
+                <Anchor href='#'>
+                  Blog
+                </Anchor>
+              </Menu>
+              &nbsp;&nbsp;
+              <Button label="Sign In" href="/login" className="landing-sign-button"/>
             </Box>
           </Header>
           <Section>
@@ -81,9 +102,9 @@ class Login extends Component {
                   value=''
                   />
                 &nbsp;&nbsp;
-                <Button href="#" label="Get Started" className="get-started-button" />
+                  <Anchor href="#" label="Get Started" className="get-started-button" />
               </Form>
-              <div className="landing-footer-menu">Already joined Bizintro? &nbsp;&nbsp;<Anchor label='Sign In' href='#' /></div>
+              <div className="landing-footer-menu">Already joined Bizintro? &nbsp;&nbsp;<Anchor label='Sign In' href='/login' /></div>
             </Box>
           </Section>
         </Box>

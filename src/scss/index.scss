@@ -40,8 +40,9 @@
 .grommetux-background-color-index-neutral-3, .grommetux-background-color-index-neutral-7 {
 	background-color: #0e243d;
 }
-.grommetux-sidebar--xsmall {
-	width: 78px;
+.nav-sidebar {
+	width: 78px !important;
+	height: calc(100vh - 72px) !important;
 }
 
 .grommetux-split__column--fixed {
@@ -83,6 +84,11 @@
 	padding: 20px;
 	background: #f6f6f6;
 	overflow-x: auto;
+	max-height: calc(100vh - 180px);
+}
+.instuctions-footer {
+	bottom: 10px;
+	background: #eee;
 }
 .introductionItem {
 	margin-top: 8px;
@@ -103,11 +109,32 @@
 }
 .instructionName {
 	margin-left: 20px;
-    font-size: 18px;
-    margin-top: 6px;
-    > span {
+	font-size: 18px;
+	margin-top: 6px;
+	max-width: 58%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	> span {
 		font-weight: 600;
-    }
+	}
+}
+@media screen and (min-width: 1070px) {
+	.instructionName {
+		max-width: 100%;
+	}
+}
+.instructionName-right {
+	margin-left: 20px;
+	font-size: 18px;
+	margin-top: 6px;
+	max-width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	> span {
+		font-weight: 600;
+	}
 }
 .pull-right {
 	float: right;
@@ -115,8 +142,12 @@
 .secondColumBox {
 	justify-content: space-between;
 }
+.grommetux-box--direction-row.grommetux-box--responsive {
+	flex-direction: row !important;
+}
 .introduction-item-first-col {
 	justify-content: space-between;
+	white-space: nowrap;
 }
 .detail-view-class {
 	padding: 13px;
@@ -200,15 +231,52 @@
 	}
 }
 .login-form-box {
-	background: url('http://placeimg.com/640/480/any');
+	background: url('img/login.png');
+	background-size: 100% 100%;
 	display: block;
+	padding: 30px;
 }
 .login-form-section {
 	background: #0e243d;
     float: right;
-    margin: 150px 100px 0px 0px;
     padding-bottom: 54px;
 }
+
+@media screen and (min-width: 320px) {
+	.login-form-section {
+		width: 100%;
+		margin: 150px 0px 0px 0px;
+	}
+}
+@media screen and (min-width: 480px) {
+	.login-form-section {
+		width: 80%;
+		margin: 150px 10% 0px 0px;
+	}
+}
+@media screen and (min-width: 648px) {
+	.login-form-section {
+		width: 60%;
+		margin: 150px 10% 0px 0px;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.login-form-section {
+		width: 50%;
+		margin: 150px 10% 0px 0px;
+	}
+}
+@media screen and (min-width: 997px) {
+	.login-form-section {
+		width: 40%;
+	}
+}
+
+
+
+
+
 .grommetux-heading.grommetux-heading--strong {
 	font-size: 48px !important;
 	font-family: 'Metric Black';
@@ -335,6 +403,7 @@
 	background-size: 100% 100%;
 	display: block;
 	background-color: #555;
+	padding-left: 30px;
 }
 .landing-logo {
 	font-size: 48px !important;
@@ -343,8 +412,12 @@
 	line-height: 24px;
 	padding: 0px;
 	color: white !important;
-	font-weight: 900;
+	font-weight: 500;
 	font-style: black;
+	text-decoration: none;
+	&:hover {
+		text-decoration: none;
+	}
 }
 .landing-nav-menus {
 	a {
@@ -355,7 +428,7 @@
 	}
 	.landing-sign-button {
 		width: 115px;
-		height: 51px;
+		height: 54px;
 		border-radius: 8px;
 		border: 3px solid #4299ff;
 		span {
@@ -371,17 +444,65 @@
 		}
 	}
 }
+.landing-page-menu {
+	display: none !important;
+	border: 3px solid #4299ff;
+	border-radius: 10px;
+}
+.landing-page-menus {
+	display: inherit;
+}
+
+@media screen and (max-width: 650px) {
+	.landing-page-menu {
+		display: block !important;
+	}
+	.landing-page-menus {
+		display: none;
+	}
+}
+
 .landing-title {
 	white-space: initial;
-	width: 50%;
 	span {
 		color: #ffffff;
 		font-family: "Metric HPE";
-		font-size: 90px;
+		font-size: 80px;
 		font-weight: 600;
 		line-height: 85px;
 	}
 }
+
+
+@media screen and (min-width: 320px) {
+	.landing-title {
+		width: 100%;
+	}
+}
+@media screen and (min-width: 480px) {
+	.landing-title {
+		width: 90%
+	}
+}
+@media screen and (min-width: 648px) {
+	.landing-title {
+		width: 80%
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.landing-title {
+		width: 70%
+	}
+}
+@media screen and (min-width: 997px) {
+	.landing-title {
+		width: 60%
+	}
+}
+
+
+
 .get-started-div {
 	.get-started-title {
 		color: #f5a623;
@@ -389,7 +510,6 @@
 		font-size: 24px;
 	}
 	.get-started-form {
-		width: 50%;
 		input {
 			background: white;
 			width: 65%;
@@ -424,6 +544,9 @@
 	margin-top: 10px;
 	li {
 		padding-right: 50px;
+		&:last-child {
+			padding-right: 0px;
+		}
 		span {
 			position: absolute;
 			font-size: smaller;
@@ -452,4 +575,7 @@
 	button {
 		min-width: 0px !important;
 	}
+}
+.main-content {
+	width: 100%;
 }

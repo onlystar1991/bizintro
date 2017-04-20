@@ -38,7 +38,7 @@ class NavSidebar extends Component {
     ));
 
     return (
-      <Sidebar colorIndex='neutral-3' fixed={true} size='xsmall'>
+      <Sidebar colorIndex='neutral-3' fixed={true} size='xsmall' className='nav-sidebar'>
         <Menu fill={true} primary={true}>
           {links}
         </Menu>
