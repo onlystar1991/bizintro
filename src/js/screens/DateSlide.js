@@ -6,15 +6,15 @@ class DateSlide extends Component {
       <div className='timeline'>
         <li>
           <div className='circle'></div><div className='line'></div>
-          <span>2017/4/15</span>
+          <div className='date'>2017/4/15</div>
         </li>
         <li>
           <div className='circle'></div><div className='line'></div>
-          <span>2017/4/15</span>
+          <div className='date'>2017/4/15</div>
         </li>
         <li>
           <div className='circle'></div>
-          <span>2017/4/15</span>
+          <div className='date-last'>2017/4/15</div>
         </li>
       </div>
     );

@@ -115,11 +115,7 @@ class Home extends Component {
     var i = 0;
     const instructions = items.map(instruction => (
       i++,
-      <Split fixed={false}
-        priority='right' key={i}
-        separator={false}
-        className='introductionItem'
-        >
+      <div className='introductionItem' >
         <Box align='start' direction='row' className='introduction-item-first-col'
           pad='medium'>
           <Box direction='row'>
@@ -144,7 +140,7 @@ class Home extends Component {
               </Anchor>
             </Box>
         </Box>
-      </Split>
+      </div>
     ));
 
     

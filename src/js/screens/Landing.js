@@ -102,7 +102,7 @@ class Login extends Component {
                   value=''
                   />
                 &nbsp;&nbsp;
-                  <Anchor href="#" label="Get Started" className="get-started-button" />
+                  <Button href="#" label="Get Started" className="get-started-button" />
               </Form>
               <div className="landing-footer-menu">Already joined Bizintro? &nbsp;&nbsp;<Anchor label='Sign In' href='/login' /></div>
             </Box>

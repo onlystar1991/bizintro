@@ -44,7 +44,6 @@
 	width: 78px !important;
 	height: calc(100vh - 72px) !important;
 }
-
 .grommetux-split__column--fixed {
 	height: calc(100vh - 72px);
 }
@@ -94,19 +93,47 @@
 	margin-top: 8px;
 	margin-bottom: 15px;
 	background: white;
-	height: 90px;
 	-webkit-box-shadow: 1px 3px 9px 0px rgba(187,187,187,1);
 	-moz-box-shadow: 1px 3px 9px 0px rgba(187,187,187,1);
 	box-shadow: 1px 3px 9px 0px rgba(187,187,187,1);
+	width: 100%;
+	display: inline-flex;
+	.introduction-item-first-col {
+		justify-content: space-between;
+		white-space: nowrap;
+		width: 50%;
+	}
+	.secondColumBox {
+		justify-content: space-between;
+		width: 50%;
+	}
+	.grommetux-box--pad-medium {
+		padding: 12px;
+	}
+}
+@media screen and (max-width: 917px) {
+	.introductionItem {
+		display: block;
+		.introduction-item-first-col {
+			justify-content: space-between;
+			white-space: nowrap;
+			width: 100%;
+		}
+		.secondColumBox {
+			justify-content: space-between;
+			width: 100%;
+		}
+		.timeline {
+			margin-right: 10px;
+		}
+	}
 }
 .instruction-item-image {
 	border-radius: 25px;
 	width: 50px;
 	height: 50px;
 }
-.introductionItem .grommetux-box--pad-medium {
-	padding: 12px;
-}
+
 .instructionName {
 	margin-left: 20px;
 	font-size: 18px;
@@ -139,16 +166,10 @@
 .pull-right {
 	float: right;
 }
-.secondColumBox {
-	justify-content: space-between;
-}
 .grommetux-box--direction-row.grommetux-box--responsive {
 	flex-direction: row !important;
 }
-.introduction-item-first-col {
-	justify-content: space-between;
-	white-space: nowrap;
-}
+
 .detail-view-class {
 	padding: 13px;
 	> a {
@@ -546,15 +567,18 @@
 	list-style: none;
 	margin-top: 10px;
 	li {
-		padding-right: 50px;
 		&:last-child {
 			padding-right: 0px;
 		}
-		span {
-			position: absolute;
+		.date {
 			font-size: smaller;
 			margin-left: -15px;
-			margin-top: 8px;
+			margin-top: 15px;
+		}
+		.date-last {
+			font-size: smaller;
+			margin-left: -15px;
+			margin-top: 5px;
 		}
 	}
 	.circle {
@@ -564,7 +588,6 @@
 		background: #4496ff;
 	}
 	.line {
-		position: absolute;
 		background: #4496ff;
 		height: 1px;
 		border: 1px solid #4496ff;
@@ -580,5 +603,5 @@
 	}
 }
 .main-content {
-	width: 100%;
+	width: calc(100% - 78px);
 }
