@@ -19,6 +19,7 @@ import Tasks from '../screens/Tasks';
 import Task from '../screens/Task';
 import NotFound from '../screens/NotFound';
 import Home from '../screens/Home';
+import Appointment from '../screens/Appointment';
 
 
 class Main extends Component {
@@ -48,9 +49,10 @@ class Main extends Component {
         <Router>
           <Switch>
             <Route exact={true} path='/' component={Landing} />
-            <Route path='/dashboard' component={Dashboard} />
-            <Route path='/home' component={Home} />
             <Route path='/login' component={Login} />
+            <Route path='/home' component={Home} />
+            <Route path='/dashboard' component={Dashboard} />
+            <Route path='/appointment' component={Appointment} />
             <Route path='/tasks/:id' component={Task} />
             <Route path='/tasks' component={Tasks} />
             <Route path='/*' component={NotFound} />

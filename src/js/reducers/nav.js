@@ -26,7 +26,7 @@ const initialState = {
     { path: '/dashboard', label: <AddIcon /> },
     { path: '/dashboard1', label: <BarChartIcon /> },
     { path: '/home', label: <HaltIcon /> },
-    { path: '/dashboard3', label: <CalendarIcon /> },
+    { path: '/appointment', label: <CalendarIcon /> },
     { path: '/dashboard4', label: <ConnectIcon /> },
     { path: '/tasks', label: <GroupIcon /> }
   ]
