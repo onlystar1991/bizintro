@@ -7,24 +7,12 @@ import { initialize } from './actions/session';
 import store from './store';
 import Main from './components/Main';
 
-const locale = getCurrentLocale();
-addLocaleData(en);
-let messages;
-try {
-  messages = require(`./messages/${locale}`);
-} catch (e) {
-  messages = require('./messages/en-US');
-}
-const localeData = getLocaleData(messages, locale);
-
 if (window.location.pathname !== '/login') {
-  store.dispatch(initialize(window.location.pathname));
+	store.dispatch(initialize(window.location.pathname));
 }
 
 export default () => (
-  <Provider store={store}>
-    <IntlProvider locale={localeData.locale} messages={localeData.messages}>
-      <Main />
-    </IntlProvider>
-  </Provider>
+	<Provider store={store}>
+		<Main />
+	</Provider>
 );

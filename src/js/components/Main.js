@@ -19,7 +19,10 @@ import Tasks from '../screens/Tasks';
 import Task from '../screens/Task';
 import NotFound from '../screens/NotFound';
 import Home from '../screens/Home';
+import Help from '../screens/Help';
+import Pricing from '../screens/Pricing';
 import Appointment from '../screens/Appointment';
+import Feature from '../screens/Feature';
 
 
 class Main extends Component {
@@ -49,12 +52,13 @@ class Main extends Component {
         <Router>
           <Switch>
             <Route exact={true} path='/' component={Landing} />
-            <Route path='/login' component={Login} />
-            <Route path='/home' component={Home} />
+            <Route path='/feature' component={Feature} />
+            <Route path='/pricing' component={Pricing} />
             <Route path='/dashboard' component={Dashboard} />
+            <Route path='/home' component={Home} />
+            <Route path='/login' component={Login} />
             <Route path='/appointment' component={Appointment} />
-            <Route path='/tasks/:id' component={Task} />
-            <Route path='/tasks' component={Tasks} />
+            <Route path='/help' component={Help} />
             <Route path='/*' component={NotFound} />
           </Switch>
         </Router>

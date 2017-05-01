@@ -4,16 +4,16 @@ import {
 } from '../api/tasks';
 
 export function loadTasks() {
-  return dispatch => (
-    watchTasks()
-      .on('success',
-        payload => dispatch({ type: TASKS_LOAD, payload })
-      )
-      .on('error',
-        payload => dispatch({ type: TASKS_LOAD, error: true, payload })
-      )
-      .start()
-  );
+  // return dispatch => (
+  //   watchTasks()
+  //     .on('success',
+  //       payload => dispatch({ type: TASKS_LOAD, payload })
+  //     )
+  //     .on('error',
+  //       payload => dispatch({ type: TASKS_LOAD, error: true, payload })
+  //     )
+  //     .start()
+  // );
 }
 
 export function unloadTasks() {

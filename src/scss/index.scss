@@ -7,20 +7,20 @@
 @import '~react-quill/dist/quill.core';
 
 @font-face {
-  font-family: "Metric Black";
-  src: url("#{$hpe-fonts-path}/MetricHPE-Web-Black.woff") format('woff');
+	font-family: "Metric Black";
+	src: url("#{$hpe-fonts-path}/MetricHPE-Web-Black.woff") format('woff');
 }
 @font-face {
-  font-family: "Metric HPE";
-  src: url("#{$hpe-fonts-path}/MetricHPE-Web-Regular.woff") format('woff');
-  font-style: 'regular';
+	font-family: "Metric HPE";
+	src: url("#{$hpe-fonts-path}/MetricHPE-Web-Regular.woff") format('woff');
+	font-style: 'regular';
 }
 
 @font-face {
-  font-family: "Metric HPE";
-  src: url("#{$hpe-fonts-path}/MetricHPE-Web-Bold.woff") format('woff');
-  font-weight: 700;
-  font-style: 'bold';
+	font-family: "Metric HPE";
+	src: url("#{$hpe-fonts-path}/MetricHPE-Web-Bold.woff") format('woff');
+	font-weight: 700;
+	font-style: 'bold';
 }
 
 @font-face {
@@ -82,11 +82,14 @@
 .instruction-section {
 	padding: 20px;
 	background: #f6f6f6;
-	overflow-x: auto;
+	overflow-y: auto;
 	max-height: calc(100vh - 180px);
 }
 .instuctions-footer {
-	bottom: 10px;
+	padding-left: 30px;
+    padding-top: 5px;
+    font-family: Metric HPE;
+    font-weight: 600;
 	background: #eee;
 }
 .introductionItem {
@@ -165,6 +168,7 @@
 }
 .pull-right {
 	float: right;
+	text-decoration: none;
 }
 .grommetux-box--direction-row.grommetux-box--responsive {
 	flex-direction: row !important;
@@ -252,15 +256,14 @@
 	}
 }
 .login-form-box {
-	background: url('img/login.png');
-	background-size: 100% 100%;
+	background: url("img/login.png") center center / cover no-repeat;
 	display: block;
 	padding: 30px;
 }
 .login-form-section {
 	background: #0e243d;
-    float: right;
-    padding-bottom: 54px;
+	float: right;
+	padding-bottom: 54px;
 }
 
 @media screen and (min-width: 320px) {
@@ -307,7 +310,6 @@
 	color: white;
 	font-weight: 900;
 	font-style: black;
-
 }
 .grommetux-paragraph.grommetux-paragraph--align-start {
 	color: #f5a623;
@@ -420,12 +422,155 @@
 	font-size: 15px;
 }
 .landing-box {
-	background: url(img/rectangle.png);
-	background-size: 100% 100%;
+	background: url("img/rectangle.png") center center / cover no-repeat;
 	display: block;
 	background-color: #555;
 	padding-left: 30px;
 }
+.grommetux-hero__foreground {
+	align-self: flex-start;
+	padding: 25px;
+	font-family: 'Metric Black';
+	.feature-header {
+		font-size: 45px;
+		padding:0px;
+		text-decoration: none;
+		padding-left: 60px;
+		width: 50%;
+		&:hover {
+			text-decoration:none;
+		}
+	}
+	.feature-heading {
+		width: 50%;
+		.feature-label {
+			color: #666666;
+			font-family: "Metric HPE";
+			font-size: 16px;
+			font-weight: 300;
+			letter-spacing: 4px;
+			line-height: 20px;
+			text-transform: uppercase;
+		}
+		.feature-accelerate {
+			color: #333333;
+			font-family: "Metric HPE";
+			font-size: 48px;
+			font-weight: 600;
+			line-height: 54px;
+			width: 75%;
+		}
+		.feature-hpe {
+			width: 75%;
+			margin-top: 30px;
+			color: #666666;
+			font-family: "Metric HPE";
+			font-size: 24px;
+			font-weight: 300;
+			line-height: 30px;
+		}
+		.feature-more {
+			margin-top: 30px;
+			color: #666666;
+			font-family: "Metric HPE";
+			font-size: 16px;
+			font-weight: 600;
+			.feature-arrow {
+				stroke: #666666;
+			}
+			.grommetux-anchor {
+				color: #666666;
+				text-decoration: none;
+
+			}
+		}
+	}
+}
+.feature-section {
+	align-items: center;
+	text-align: center;
+	padding-top: 48px;
+	padding-bottom: 48px;
+	.feature-section-first {
+		width: 75%;
+		padding-bottom: 20px;
+		.feature-section-first-title {
+			color: #333333;
+			padding-top: 30px;
+			padding-bottom: 30px;
+			font-family: "Metric HPE";
+			font-size: 48px;
+			font-weight: 600;
+			line-height: 54px;
+		}
+		.feature-section-first-content {
+			padding-bottom: 30px;
+			padding-left: 60px;
+			padding-right: 60px;
+			color: #666666;
+			font-family: "Metric HPE";
+			font-size: 32px;
+			font-weight: 300;
+			line-height: 38px;
+		}
+	}
+	.feature-section-second {
+		display: flex;
+		width: 75%;
+		padding-top: 50px;
+	    box-sizing: inherit;
+	    .feature-section-second-items{
+	    	align-items: center;
+	    	text-align: center;
+	    	.feature-section-headline {
+	    		font-weight: 600;
+	    		margin: 30px;
+	    	}
+	    }
+	}
+}
+
+.feature-card-section {
+	background-color: #425563;
+	align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+	.feature-card-box-title {
+    	color: #ffffff;
+		font-family: "Metric HPE";
+		font-size: 48px;
+		font-weight: 600;
+		line-height: 54px;
+		margin-bottom: 20px;
+    }
+    .feature-card-box {
+    	padding-bottom: 30px;
+	.feature-card-item {
+		background-color: #ffffff;
+		color: #333;
+		margin: 12px;
+		.grommetux-heading {
+			color: #333333;
+		    font-family: "Metric HPE";
+		    font-size: 40px;
+		    font-weight: 600;
+		    line-height: 54px;
+		}
+		.grommetux-anchor {
+			text-decoration: none;
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+}
+}
+
+@media screen and (min-width: 45em){
+	width: 100%;
+}
+
 .landing-logo {
 	font-size: 48px !important;
 	font-family: 'Metric Black';
@@ -521,8 +666,167 @@
 		width: 60%
 	}
 }
+.grommetux-hero__foreground {
+	.pricing-header {
+		padding-right: 30px;
+		.pricing-title {
+			color: #ffffff;
+			font-family: "Metric HPE";
+			font-size: 48px;
+			font-weight: 900;
+			letter-spacing: 1.4px;
+			line-height: 24px;
+		    text-decoration: none;
+			&:hover {
+				text-decoration: none;
+				}
+			}
+			.pricing-menu {
+			margin-right: 65px;
+			justify-content: flex-end;
+			color: #ffffff;
+			font-family: "Metric HPE";
+			font-size: 22px;
+			font-weight: 600;
+			line-height: 24px;
+			> a {
+				text-decoration: none;
+				padding-left: 30px;
+				&:hover {
+					text-decoration: none;
+				}
+		}
+		}
+		.pricing-button {
+			font-family: "Metric HPE";
+			color: #ffffff;
+			font-size: 22px;
+			font-weight: 600;
+			line-height: 24px;
+		}
+	}
 
-
+	.pricing-section {
+		background-color: #FFFFFF;
+  		width: 85%;
+  		margin: auto;
+  		margin-top: 100px;
+  		.pricing-section-up {
+  			 text-align: center;
+  			 align-items: center;
+  			 margin-top: 50px;
+  			.pricing-section-up-title {
+  				color: #333333;
+				font-family: "Metric HPE";
+				font-size: 48px;
+				font-weight: 600;
+				line-height: 54px;
+  			}
+  			.pricing-section-up-paragragh {
+  				color: #666666;
+				font-family: "Metric HPE";
+				font-size: 20px;
+				font-weight: 300;
+				line-height: 29px;
+  			}
+  		}
+  		.pricing-section-down {  			
+			.pricing-section-down-item {
+				align-items: center;
+				margin: 45px;
+				width: 49%;
+    			.pricing-section-down-moneytype {
+					color: #333333;
+					font-family: "Metric HPE";
+					font-size: 32px;
+					font-weight: 600;
+					line-height: 54px;
+					margin-top: 0px;
+		    		margin-bottom: 24px;
+		    		    margin-bottom: 0px;
+	  			}
+	  			.pricing-section-down-moneysymbol {
+	  				color: #9b9b9b;
+					font-family: "Metric HPE";
+					font-size: 42px;
+					font-weight: 600;
+					line-height: 54px;
+					margin-top: 0px;
+	    			margin-bottom: 24px;
+	    			    margin-bottom: 0px;
+	  			}
+	  			.pricing-section-down-moneynumber {
+	  				color: #333333;
+					font-family: "Metric HPE";
+					font-size: 144px;
+					font-weight: 600;
+					line-height: 54px;
+					margin-top: 0px;
+	    			margin-bottom: 24px;
+	    			    margin-bottom: 0px;
+	  			}
+	  			.pricing-section-down-paragragh {
+			    margin-top: 40px;
+				color: #666666;
+				font-family: "Metric HPE";
+				font-size: 20px;
+				font-weight: 300;
+				line-height: 30px;
+				}
+				.pricing-section-down-item-button {
+					width: 100%;
+					background: #4299ff;
+					border-color: #4299ff;
+					margin: 30px;
+					font-family: "Metric HPE";
+				    font-size: 20px;
+				    font-weight: 600;
+				    line-height: 30px;
+				}
+			}
+			.verticalline {
+				width: 2px;
+				background-color: #999999;
+				margin-top: 50px;
+				margin-bottom: 70px;
+			}
+			
+  		}
+	}	
+}
+.pricing-section {
+	align-items: center;
+	padding-top: 60px;
+	padding-bottom: 20px;
+	.pricing-section-first {
+		width: 75%;
+		padding-bottom: 20px;
+		.pricing-section-first-title {
+			color: #333333;
+		    font-family: "Metric HPE";
+		    font-size: 48px;
+		    font-weight: 600;
+		    line-height: 54px;
+		    align-items: center;
+		    padding-bottom: 50px;
+		}
+		.pricing-section-first-content {
+			color: #666666;
+			font-family: "Metric HPE";
+			font-size: 24px;
+			font-weight: 300;
+			line-height: 30px;
+		}
+	}
+	.pricing-section-hero {
+		width: 80%;
+		justify-content: space-between;
+		.pricing-section-hero-item {
+			margin: 10px;
+			width: 100%;
+		}
+	}
+}
 
 .get-started-div {
 	.get-started-title {
@@ -605,52 +909,144 @@
 .main-content {
 	width: calc(100% - 78px);
 }
-
-
-
-
-/*
-Calendar CSS
-*/
-.Calendar {
+.page-header {
+	justify-content: space-between;
+	padding-right: 20px;
 	padding-left: 20px;
+	width: 100%;
+		> a {
+			color: #333333 !important;
+			font-family: "Metric HPE";
+			font-size: 48px;
+			font-weight: 600;
+			line-height: 54px;
+		    align-items: center;
+		    text-decoration: none;
+			&:hover {
+				text-decoration: none;
+			}
+		}
+}
+.help-main {
+	width: calc(100% - 78px);
+	.help-main-header {
+		height: 72px;
+		background: #d8d8d8;
+		vertical-align: middle;
+		width: 100%;
+		padding-top: 10px;
+		justify-content: space-between;
+		.help-main-header-title {
+			width: 50%;
+			padding-right: 10px;
+			padding-left: 10px;
+		}
+	}
+	.help-main-content {
+		background: #f6f6f6;
+		height: calc(100vh - 144px);
+		> div.grommetux-split__column {
+			height: 100%;
+		}
+		.requests-box {
+			height: 100%;
+		}
+		.approved-box {
+			display: table-cell;
+		    vertical-align: middle;
+		    text-align: center;
+		    padding: 20px;
+		    .heart-logo {
+		    	width: 100px;
+		    }
+			.paragraph-box {
+			    margin: auto;
+			    width: 50%;
+			}
+		}
+		
+		
+	}
+	
+}
+.main-content-item {
+	margin-top: 20px;
+	background: #ffffff;
+	}
+.help-main-left {
+	padding-left: 20px;
+	padding-right: 20px;
+	background: #f6f6f6;
+	overflow-x: auto;
+	max-height: calc(100vh - 144px);
+}
+.main-content-title {
+	color: #333333 !important;
+	font-family: "Metric HPE";
+	font-size: 32px;
+	padding-left: 24px;
+	padding-right: 24px;
+	font-weight: 600;
+	align-items: center;
+	text-decoration: none;
+	&:hover {
+		text-decoration: none;
+	}
 }
 
+
+.main-content-item-up {
+	width: 100%;
+}
+.linkdownicon {
+	margin-left: 120px;
+}
+
+.grommetux-split__column.grommetux-split__column--flex {
+	display: table;
+	width: 50%;
+}
+.login1 {
+	background: url(/img/pricing1.png);
+	background-size: 100% 100%;
+	display: block;
+	padding: 30px;
+}
 .Calendar-grid {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
 }
 
 .Calendar-header {
-  height: 50px;
-  background: #0d233d;
-  color: #fff;
-  text-align: center;
-  line-height: 50px;
-  display: flex;
-  font-size: 20px;
-  justify-content: space-between;
+	height: 50px;
+	background: #0d233d;
+	color: #fff;
+	text-align: center;
+	line-height: 50px;
+	display: flex;
+	font-size: 20px;
+	justify-content: space-between;
 }
 
 .Calendar-header button {
-  width: 50px;
-  font-size: 20px;
-  border: 0;
-  background: transparent;
-  color: #ddd;
-  cursor: pointer;
+	width: 50px;
+	font-size: 20px;
+	border: 0;
+	background: transparent;
+	color: #ddd;
+	cursor: pointer;
 }
 
 .Calendar-grid-item {
-  flex: 0 14.28571%;
-  text-align: center;
-  border-right: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+	flex: 0 14.28571%;
+	text-align: center;
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 .Calendar-grid-item.active {
 	border: 2px black solid !important;

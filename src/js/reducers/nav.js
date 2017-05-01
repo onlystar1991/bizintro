@@ -24,10 +24,10 @@ const initialState = {
   responsive: 'multiple',
   items: [
     { path: '/dashboard', label: <AddIcon /> },
-    { path: '/dashboard1', label: <BarChartIcon /> },
+    { path: '/dashboard', label: <BarChartIcon /> },
     { path: '/home', label: <HaltIcon /> },
     { path: '/appointment', label: <CalendarIcon /> },
-    { path: '/dashboard4', label: <ConnectIcon /> },
+    { path: '/help', label: <ConnectIcon /> },
     { path: '/tasks', label: <GroupIcon /> }
   ]
 };

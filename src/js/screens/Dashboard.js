@@ -25,6 +25,22 @@ import {
 import { pageLoaded } from './utils';
 import NavSidebar from '../components/NavSidebar';
 
+const ReactHighcharts = require('react-highcharts');
+const graph = {
+      config: {
+        title: {
+            text: 'Dashboard'
+        },
+        xAxis: {
+          categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23','24', '25', '26', '27', '28', '29', '30']
+        },
+        series: [{
+          data: [30, 60, 20, 40, 60, 10, 30, 80, 10, 40, 20, 30, 70, 6, 20, 40, 10, 10, 10,20, 70, 80, 50, 40, 10, 30, 40, 30, 40, 50],
+          name: ' '
+        }]
+      }
+    }
+
 class Dashboard extends Component {
 
   componentDidMount() {
@@ -38,19 +54,37 @@ class Dashboard extends Component {
     this.props.dispatch(unloadDashboard());
   }
 
+  constructor(props) {
+    super(props);
+
+    // this.state = {
+    //   config: {
+    //           xAxis: {
+    //             categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    //           },
+    //           series: [{
+    //             data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 295.6, 454.4]
+    //           }]
+    //         }
+    // };
+  }
+
   render() {
     const nav = <NavSidebar />;
     return (
       <div>
-        <Header>
+        <Header className="introduction-header">
           <Anchor path='/'>Bizintro</Anchor>
         </Header>
-        <Split flex='right'>
+        <Box direction='row'>
           {nav}
-          <Article primary={true}>
-            Test
-          </Article>
-        </Split>
+          <div className='main-content'>
+            <Box>
+              <ReactHighcharts config={graph.config}>
+              </ReactHighcharts>
+            </Box>
+          </div>
+        </Box>
       </div>
     );
   }
