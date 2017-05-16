@@ -54,6 +54,26 @@ const styles = {
 
 class Home extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      docked: false,
+      open: false,
+      transitions: true,
+      touch: true,
+      shadow: true,
+      pullRight: true,
+      touchHandleWidth: 20,
+      dragToggleDistance: 30,
+    };
+
+    this.renderPropCheckbox = this.renderPropCheckbox.bind(this);
+    this.renderPropNumber = this.renderPropNumber.bind(this);
+    this.onSetOpen = this.onSetOpen.bind(this);
+    this.menuButtonClick = this.menuButtonClick.bind(this);
+  }
+
   onSetOpen(open) {
     this.setState({open: open});
   }
@@ -90,28 +110,11 @@ class Home extends Component {
       </p>);
   }
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      docked: false,
-      open: false,
-      transitions: true,
-      touch: true,
-      shadow: true,
-      pullRight: true,
-      touchHandleWidth: 20,
-      dragToggleDistance: 30,
-    };
-
-    this.renderPropCheckbox = this.renderPropCheckbox.bind(this);
-    this.renderPropNumber = this.renderPropNumber.bind(this);
-    this.onSetOpen = this.onSetOpen.bind(this);
-    this.menuButtonClick = this.menuButtonClick.bind(this);
-  }
+  
 
   render() {
     const { box: { items } } = this.props;
+    console.log('=====', items);
     var i = 0;
     const instructions = items.map(instruction => (
       i++,
@@ -161,9 +164,6 @@ class Home extends Component {
     };
     const nav = <NavSidebar />;
 
-
-
-
     return (
       <Sidebar {...sidebarProps} size='large'>
         <Header className="introduction-header">
@@ -194,14 +194,11 @@ class Home extends Component {
                   </Anchor>
                 </Menu>
                 {!this.state.docked && <Button icon={<Add />} onClick={this.menuButtonClick} href='#' primary={false} />}
-
-                
               </Box>
             </Header>
             <div className="instruction-section">
               {instructions}
             </div>
-            <Footer className="instuctions-footer">Instructions</Footer>
           </div>
         </Box>
       </Sidebar>
@@ -216,9 +213,6 @@ Home.propTypes = {
       path: PropTypes.string,
       label: PropTypes.string
     }))
-  }),
-  state: PropTypes.shape({
-    sidebarOpen: PropTypes.bool
   })
 };
 

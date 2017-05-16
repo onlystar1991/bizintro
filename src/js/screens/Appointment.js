@@ -150,8 +150,6 @@ class Appointment extends Component {
                   </Anchor>
                 </Menu>
                 {!this.state.docked && <Button icon={<Add />} onClick={this.menuButtonClick} href='#' primary={false} />}
-
-                
               </Box>
             </Header>
             <div className="instruction-section">

@@ -8,11 +8,18 @@ export function initialize() {
   return (dispatch) => {
     const { email, name, token } = localStorage;
     if (email && token) {
+      if (window.location.pathname == '/') {
+        window.location = '/dashboard';
+      }
       dispatch({
         type: SESSION_LOAD, payload: { email, name, token }
       });
     } else {
-      window.location = '/login';
+      if (window.location.pathname == '/') {
+
+      } else if (!window.location.pathname.include('guest')) {
+        window.location = '/login';
+      }
     }
   };
 }

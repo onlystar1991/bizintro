@@ -67,18 +67,18 @@ class Login extends Component {
               pad='medium' size='small'
               responsive={false} className='landing-nav-menus'>
               <div className='landing-page-menus'>
-                <Anchor>Features</Anchor>
-                <Anchor>Pricing</Anchor>
+                <Anchor href='/feature'>Features</Anchor>
+                <Anchor href='/pricing'>Pricing</Anchor>
                 <Anchor>Support</Anchor>
                 <Anchor>Blog</Anchor>
               </div>
               <Menu className='landing-page-menu'
                 icon={<MenuIcon />}>
-                <Anchor href='#'
+                <Anchor href='/feature'
                   className='active'>
                   Features
                 </Anchor>
-                <Anchor href='#'>
+                <Anchor href='/pricing'>
                   Pricing
                 </Anchor>
                 <Anchor href='#'>

@@ -116,7 +116,7 @@ class Feature extends Component {
           backgroundColorIndex='dark'
           size='large'>
           <Box direction="row">
-            <Anchor className='feature-header'>
+            <Anchor className='feature-header' path='/'>
             Bizintro
             </Anchor>
             <Box className="feature-heading">

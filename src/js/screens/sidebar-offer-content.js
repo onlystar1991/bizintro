@@ -58,8 +58,9 @@ const styles = {
   },
 };
 
-class SidebarContent extends Component {
+class SidebarOfferContent extends Component {
   constructor (props) {
+    console.log("-----", props);
     super(props);
   }
   render () {
@@ -67,30 +68,17 @@ class SidebarContent extends Component {
       <Sidebar fixed={true} size='large' className="slide-bar-content">
         <Header size='large' justify='between' pad={{ horizontal: 'medium' }} className='slide-bar-title'>
           <Title>
-            Make Intro
+            Offer Help
           </Title>
           <Button icon={<CloseIcon />} plain={true}
-            a11yTitle='Close Menu' />
+            a11yTitle='Close Menu' onClick={this.props.parentToggle.bind(this)} />
         </Header>
 
-        <Section className='slide-bar-section'>
-          Compose a message to let them know why you want Bethany Superdson to meet John Lillvon.
-          <Box className='slide-bar-search'>
-            <div>
-              Introduction Message
-            </div>
-            <ReactQuill className="rich-editor"
-                theme="snow"
-                modules={modules}
-                formats={formats}
-               />
-          </Box>
-          <button className="help-sidebar-next" onClick={this.props.parentToggle.bind(this)}>Next</button>
-        </Section>
+        <Multistep initialStep={1} steps={steps} />
       </Sidebar>
     );
   }
 }
 
 
-export default SidebarContent;
+export default SidebarOfferContent;

@@ -65,6 +65,7 @@ if (env === 'production') {
     publicPath: '/',
     quiet: true,
     hot: true,
+    disableHostCheck: true,
     watchOptions: {
       ignored: /node_modules/
     },

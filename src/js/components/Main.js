@@ -23,7 +23,11 @@ import Help from '../screens/Help';
 import Pricing from '../screens/Pricing';
 import Appointment from '../screens/Appointment';
 import Feature from '../screens/Feature';
+import Contacts from '../screens/Contacts';
+import ContactsList from '../screens/ContactsList'
 
+import Guest from '../screens/Guest';
+import GuestSearch from '../screens/GuestSearch';
 
 class Main extends Component {
 
@@ -34,6 +38,9 @@ class Main extends Component {
 
   _onResponsive(responsive) {
     this.props.dispatch(navResponsive(responsive));
+    this.setState({
+      layout: (responsive) ? 'small' : 'large'
+    });
   }
 
   render() {
@@ -59,7 +66,12 @@ class Main extends Component {
             <Route path='/login' component={Login} />
             <Route path='/appointment' component={Appointment} />
             <Route path='/help' component={Help} />
+            <Route path='/contacts/lists' component={ContactsList} />
+            <Route path='/contacts' component={Contacts} />
+            <Route path='/guest' component={Guest} />
+            <Route path='/guest-search' component={GuestSearch} />
             <Route path='/*' component={NotFound} />
+            
           </Switch>
         </Router>
       </App>

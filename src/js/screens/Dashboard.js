@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import Responsive from 'grommet/utils/Responsive';
 import { connect } from 'react-redux';
 
 import Anchor from 'grommet/components/Anchor';
@@ -25,54 +26,92 @@ import {
 import { pageLoaded } from './utils';
 import NavSidebar from '../components/NavSidebar';
 
-const ReactHighcharts = require('react-highcharts');
-const graph = {
-      config: {
-        title: {
-            text: 'Dashboard'
-        },
-        xAxis: {
-          categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23','24', '25', '26', '27', '28', '29', '30']
-        },
-        series: [{
-          data: [30, 60, 20, 40, 60, 10, 30, 80, 10, 40, 20, 30, 70, 6, 20, 40, 10, 10, 10,20, 70, 80, 50, 40, 10, 30, 40, 30, 40, 50],
-          name: ' '
-        }]
-      }
+import { Axis } from 'grommet/components/chart/Chart';
+import LineChart from './LineChart';
+
+
+const LESS_MONEY_TO_SPEND = {
+  axis: {
+    large: {
+      series: [
+        {"index": 0, "label": "2000"},
+        {"index": 2, "label": "2002"},
+        {"index": 4, "label": "2004"},
+        {"index": 6, "label": "2006"},
+        {"index": 8, "label": "2008"},
+        {"index": 10, "label": "2010"},
+        {"index": 12, "label": "2012"}
+      ],
+      count: 13
+    },
+    small: {
+      series: [
+        {"index": 0, "label": "2000"},
+        {"index": 3, "label": "2006"},
+        {"index": 5, "label": "2012"}
+      ],
+      count: 6
     }
+  },
+  max: 69,
+  min: 62,
+  title: "Less Money to Spend",
+  series: [
+    {
+      values: [69, 69, 68, 67, 66, 65, 66, 66, 
+        66, 64, 64, 63, 64],
+      units: "%",
+      colorIndex: "accent-1"
+    }
+  ]
+};
 
 class Dashboard extends Component {
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.props.layout !== nextProps.layout) return true;
+    else return false;
+  }
+  
   componentDidMount() {
     console.log(this);
     pageLoaded('Dashboard');
     this.props.dispatch(loadDashboard());
+    this._responsive = Responsive.start(this._onResponsive);
   }
 
   componentWillUnmount() {
     console.log(this);
     this.props.dispatch(unloadDashboard());
+    this._responsive.stop();
   }
 
   constructor(props) {
     super(props);
+    console.log('props');
+    console.log(props);
+    this._onResponsive = this._onResponsive.bind(this);
+  }
 
-    // this.state = {
-    //   config: {
-    //           xAxis: {
-    //             categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    //           },
-    //           series: [{
-    //             data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 295.6, 454.4]
-    //           }]
-    //         }
-    // };
+  _onResponsive (isLayoutSmall) {
+    console.log(isLayoutSmall);
+    this.setState({
+      layout: (isLayoutSmall) ? 'small' : 'large'
+    });
   }
 
   render() {
     const nav = <NavSidebar />;
+    const axisSmall = LESS_MONEY_TO_SPEND.axis.small;
+    const axisLarge = LESS_MONEY_TO_SPEND.axis.large;
+    const { series, title, max, min } = LESS_MONEY_TO_SPEND;
+    const axis = (this.props.layout === 'small')
+      ? <Axis vertical={true} ticks={true} count={axisSmall.count}
+        labels={axisSmall.series} />
+      : <Axis vertical={false} ticks={true} count={axisLarge.count}
+        labels={axisLarge.series} />;
     return (
-      <div>
+      <Box>
         <Header className="introduction-header">
           <Anchor path='/'>Bizintro</Anchor>
         </Header>
@@ -80,12 +119,18 @@ class Dashboard extends Component {
           {nav}
           <div className='main-content'>
             <Box>
-              <ReactHighcharts config={graph.config}>
-              </ReactHighcharts>
+              <LineChart 
+                axis={axis} 
+                layout={this.props.layout}
+                min={min}
+                max={max}
+                title={title}
+                series={series}
+              />
             </Box>
           </div>
         </Box>
-      </div>
+      </Box>
     );
   }
 }

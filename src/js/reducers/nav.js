@@ -28,7 +28,7 @@ const initialState = {
     { path: '/home', label: <HaltIcon /> },
     { path: '/appointment', label: <CalendarIcon /> },
     { path: '/help', label: <ConnectIcon /> },
-    { path: '/tasks', label: <GroupIcon /> }
+    { path: '/contacts', label: <GroupIcon /> }
   ]
 };
 
